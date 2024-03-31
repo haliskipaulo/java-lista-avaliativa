@@ -4,40 +4,36 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[] args) 
-    {
+    public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
-        List<Perfil> videogame = new ArrayList<Perfil>(); 
+        List<Perfil> jogadores = new ArrayList<Perfil>(); 
         String nome;
-        int xp;
-        int nivel;
+        int xpInicial;
 
-
-        System.out.print("digite o numero de contas que deseja cadastrar - ");
+        System.out.print("Digite o número de jogadores que deseja cadastrar: ");
         int n = Integer.parseInt(leitor.nextLine());
 
-        for(int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             Perfil jogador = new Perfil();
-            System.out.print("digite o nome do jogador - ");
+            System.out.print("digite o nome do jogador: ");
             nome = leitor.nextLine();
             jogador.setNome(nome);
-            System.out.print("digite seu xp inicial - ");
-            xp = Integer.parseInt(leitor.nextLine()); 
-            jogador.setXP(xp);
+            System.out.print("digite o XP inicial do jogador: ");
+            xpInicial = Integer.parseInt(leitor.nextLine());
+            jogador.setPontuacao(xpInicial);
 
-            videogame.add(jogador);
-
-
-
-            while(true)
-            {
-
-            }
+            jogadores.add(jogador);
         }
 
+        System.out.println("\nInformações dos jogadores cadastrados:");
+        for (Perfil jogador : jogadores) {
+            System.out.println("Nome: " + jogador.getNome());
+            System.out.println("Pontuação: " + jogador.getPontuacao());
+            System.out.println("Nível: " + jogador.getNivel());
+            System.out.println();
+        }
 
         leitor.close();
     }
-    
 }
+
